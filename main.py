@@ -24,3 +24,47 @@
 #Боец наносит удар из лука.
 #Монстр побежден!
 
+from abc import ABC, abstractmethod
+class Weapon:
+    @abstractmethod
+    def attack(self):
+        pass
+
+class Sword(Weapon):
+    def attack(self):
+        return "Удар мечом"
+
+class Bow(Weapon):
+    def attack(self):
+        return "Выстрел из лука"
+
+class Fighter:
+    def __init__(self):
+        self.weapon = None
+
+    def changeWeapon(self, weapon):
+        self.weapon = weapon
+
+    def attack(self):
+        if self.weapon:
+            return self.weapon.attack()
+        else:
+            return "Боец не выбрал оружие"
+
+class Monster:
+    pass
+
+fighter = Fighter()
+sword = Sword()
+bow = Bow()
+monster = Monster()
+
+fighter.changeWeapon(sword)
+print("Боец выбирает меч.")
+print(fighter.attack())
+print("Монстр побежден!")
+
+fighter.changeWeapon(bow)
+print("Боец выбирает лук.")
+print(fighter.attack())
+print("Монстр побежден!")
