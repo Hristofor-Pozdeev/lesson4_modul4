@@ -52,7 +52,8 @@ class Fighter:
             return "Боец не выбрал оружие"
 
 class Monster:
-    pass
+    def __init__(self):
+        pass
 
 fighter = Fighter()
 sword = Sword()
